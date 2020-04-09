@@ -31,3 +31,23 @@ export function throttle(fn:Function,delay:number){
 
 
 }
+
+
+//判断是移动端还是pc端, true表示移动端, false表示pc 端
+export function isMobileOrPc(){
+    if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+//根据QueryString 参数名称 获取值
+export function getQueryStringByName(name:string){
+    let result = window.location.search.match(new RegExp("[?&]"+name+"=([A^&]+)","i"));
+    if(result == null || result.length < 1){
+        return ""
+    }
+    return result[1];
+}

@@ -6,9 +6,26 @@ import user from './modules/user';
 
 Vue.use(Vuex);
 
+const initPageState = () => {
+  return {
+    token: ""
+  }
+}
+
+
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  strict: process.env.NODE_ENV !== "production",
+  state: initPageState(),
+  mutations: {
+    [types.SAVE_TOKEN](state: any, pageState: any) {
+      for (const prop in pageState) {
+        state[prop] = pageState[prop];
+      }
+    }
+  },
   actions: {},
-  modules: {}
+  //具体模块
+  modules: {
+    user
+  }
 });

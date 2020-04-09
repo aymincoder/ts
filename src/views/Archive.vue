@@ -1,5 +1,5 @@
 <template>
-  <div>about</div>
+  <div>archive</div>
 </template>
 
 <script>
