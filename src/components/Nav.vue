@@ -148,15 +148,15 @@
 
 		get userInfo(): UserInfo {
 			let userInfo: UserInfo = {
-		        _id: "",
-		        name:"",
-				avatar:""
+				_id: "",
+				name: "",
+				avatar: ""
 			};
-			if(window.sessionStorage.userInfo){
+			if (window.sessionStorage.userInfo) {
 				userInfo = JSON.parse(window.sessionStorage.userInfo);
-				this.$store.commit("SAVE_USER",{userInfo});
+				this.$store.commit("SAVE_USER", { userInfo });
 			}
-			if(this.$store.state.user.userInfo){
+			if (this.$store.state.user.userInfo) {
 				userInfo = this.$store.state.user.userInfo;
 			}
 			return userInfo;
@@ -171,12 +171,11 @@
 				background: "rgba(255,255,255,0.7)"
 			});
 
-        
 			const data: UserInfo = await this.$https.post(
 				this.$urls.getUser,
 				{ code },
 				{ withCredentials: true }
-            );
+			);
 			loading.close();
 
 			const userInfo: UserInfo = {
@@ -217,7 +216,7 @@
 		//点击登录登出注册
 		private handleClickMenu(route: string): void {
 			this.isShow = false;
-			console.log(route)
+			console.log(route);
 			if (route === "/login") {
 				this.handleFlag = "login";
 				this.visible = true;
@@ -256,6 +255,7 @@
 		}
 
 		private handleClick(value: string): void {
+			console.log(value)
 			this.handleFlag = value;
 			this.visible = true;
 		}
@@ -263,10 +263,11 @@
 			this.visible = value;
 		}
 		private handleOk(value: boolean): void {
+			console.log('nav-->',value)
 			this.visible = value;
 		}
 		private handleSelect(val: string, oldVal: string): void {
-			console.log()
+			console.log();
 			this.activeIndex = val;
 		}
 	}
