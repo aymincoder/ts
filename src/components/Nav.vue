@@ -216,7 +216,6 @@
 		//点击登录登出注册
 		private handleClickMenu(route: string): void {
 			this.isShow = false;
-			console.log(route);
 			if (route === "/login") {
 				this.handleFlag = "login";
 				this.visible = true;

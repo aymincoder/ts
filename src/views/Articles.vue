@@ -1,5 +1,13 @@
 <template>
-  <div class="articles">
-    <h1>This is an Articles page</h1>
-  </div>
+  <div>articles</div>
 </template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

@@ -23,13 +23,13 @@
 				v-if="handleFlag === 'login'"
 				:loading="btnLoading"
 				type="primary"
-				@click="handleOk('login')"
+				@click="handleConfirm('login')"
 			>登 录</el-button>
 			<el-button
 				v-if="handleFlag === 'register'"
 				:loading="btnLoading"
 				type="primary"
-				@click="handleOk('register')"
+				@click="handleConfirm('register')"
 			>注 册</el-button>
 		</div>
 	</el-dialog>
@@ -60,7 +60,7 @@
 
 		//lifecycle hook
 		mounted() {
-			console.log("-->", this.handleFlag);
+		
 		}
 
 		//computed
@@ -80,8 +80,8 @@
 			window.location.href = `${config.oauth_uri}?client_id=${config.client_id}&redirect_uri=${config.redirect_uri}`;
 		}
 
-		private handleOK(): void {
-      console.log('666')
+		private handleConfirm(value: string): void {
+			console.log("666");
 			const reg = new RegExp(
 				"^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"
 			); //
@@ -120,8 +120,8 @@
 					});
 					return;
 				}
-      }
-      this.submit();
+			}
+			this.submit();
 		}
 
 		//this.$emit()
